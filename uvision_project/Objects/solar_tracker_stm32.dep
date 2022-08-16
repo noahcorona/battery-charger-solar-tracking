@@ -1,0 +1,83 @@
+Dependencies for Project 'solar_tracker', Target 'stm32': (DO NOT MODIFY !)
+CompilerVersion: 6150000::V6.15::ARMCLANG
+F (.\src\startup_stm32l476xx.s)(0x5E0F9FD6)(--target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -masm=auto -c-gdwarf-3 -Wa,armasm,--pd,"__EVAL SETA 1"-I./RTE/_stm32-IC:/Users/noahc/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/noahc/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.5.0/Drivers/CMSIS/Device/ST/STM32L4xx/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 533" -Wa,armasm,--pd,"_RTE_ SETA 1" -Wa,armasm,--pd,"STM32L476xx SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"-o ./objects/startup_stm32l476xx.o)
+F (.\src\SysClock.c)(0x60518494)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -w -I ./include-I./RTE/_stm32-IC:/Users/noahc/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/noahc/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.5.0/Drivers/CMSIS/Device/ST/STM32L4xx/Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L476xx -D_RTE_-o ./objects/sysclock.o -MD)
+I (include\SysClock.h)(0x6050D1ED)
+I (include\stm32l476xx.h)(0x5E0F9FD6)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm4.h)(0x5E8FB222)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5F37B1A8)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8FB222)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E83E7C2)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armclang.h)(0x5E8FB222)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE20842)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x5F276838)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\mpu_armv7.h)(0x5E8FB222)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\Keil\STM32L4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h)(0x5F73A4E0)
+I (include\sensors.h)(0x6050FC9B)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x5F37B1B4)
+I (include\I2C.h)(0x6050F29E)
+I (include\PWM.h)(0x6050E23C)
+F (.\src\PWM.c)(0x60518338)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -w -I ./include-I./RTE/_stm32-IC:/Users/noahc/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/noahc/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.5.0/Drivers/CMSIS/Device/ST/STM32L4xx/Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L476xx -D_RTE_-o ./objects/pwm.o -MD)
+I (include\stm32l476xx.h)(0x5E0F9FD6)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm4.h)(0x5E8FB222)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5F37B1A8)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8FB222)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E83E7C2)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armclang.h)(0x5E8FB222)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE20842)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x5F276838)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\mpu_armv7.h)(0x5E8FB222)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\Keil\STM32L4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h)(0x5F73A4E0)
+I (include\PWM.h)(0x6050E23C)
+I (include\SysClock.h)(0x6050D1ED)
+F (.\src\I2C.c)(0x6050F332)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -w -I ./include-I./RTE/_stm32-IC:/Users/noahc/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/noahc/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.5.0/Drivers/CMSIS/Device/ST/STM32L4xx/Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L476xx -D_RTE_-o ./objects/i2c.o -MD)
+I (include\I2C.h)(0x6050F29E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5F37B1A8)
+I (include\stm32l476xx.h)(0x5E0F9FD6)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm4.h)(0x5E8FB222)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8FB222)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E83E7C2)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armclang.h)(0x5E8FB222)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE20842)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x5F276838)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\mpu_armv7.h)(0x5E8FB222)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\Keil\STM32L4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h)(0x5F73A4E0)
+I (include\SysClock.h)(0x6050D1ED)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x5F37B1AE)
+F (.\src\sensors.c)(0x6051848A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -w -I ./include-I./RTE/_stm32-IC:/Users/noahc/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/noahc/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.5.0/Drivers/CMSIS/Device/ST/STM32L4xx/Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L476xx -D_RTE_-o ./objects/sensors.o -MD)
+I (include\stm32l476xx.h)(0x5E0F9FD6)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm4.h)(0x5E8FB222)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5F37B1A8)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8FB222)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E83E7C2)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armclang.h)(0x5E8FB222)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE20842)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x5F276838)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\mpu_armv7.h)(0x5E8FB222)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\Keil\STM32L4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h)(0x5F73A4E0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x5F37B1B4)
+I (include\SysClock.h)(0x6050D1ED)
+I (include\I2C.h)(0x6050F29E)
+I (include\PWM.h)(0x6050E23C)
+I (include\sensors.h)(0x6050FC9B)
+F (.\src\main.c)(0x6051835F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -w -I ./include-I./RTE/_stm32-IC:/Users/noahc/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/noahc/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.5.0/Drivers/CMSIS/Device/ST/STM32L4xx/Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32L476xx -D_RTE_-o ./objects/main.o -MD)
+I (include\stm32l476xx.h)(0x5E0F9FD6)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm4.h)(0x5E8FB222)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5F37B1A8)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8FB222)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E83E7C2)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armclang.h)(0x5E8FB222)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE20842)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x5F276838)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\mpu_armv7.h)(0x5E8FB222)
+I (C:\Users\noahc\AppData\Local\Arm\Packs\Keil\STM32L4xx_DFP\2.5.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h)(0x5F73A4E0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x5F37B1B4)
+I (include\SysClock.h)(0x6050D1ED)
+I (include\PWM.h)(0x6050E23C)
+I (include\I2C.h)(0x6050F29E)
+I (include\sensors.h)(0x6050FC9B)
+F (.\include\stm32l476xx.h)(0x5E0F9FD6)()
+F (.\include\SysClock.h)(0x6050D1ED)()
+F (.\include\PWM.h)(0x6050E23C)()
+F (.\include\I2C.h)(0x6050F29E)()
+F (.\include\sensors.h)(0x6050FC9B)()

@@ -1,0 +1,52 @@
+.node-detail ul{
+   padding-left: 20px;
+}
+.node-detail ul li{
+   list-style: disc;
+}
+
+figure[role="group"]{
+      display:inline-block;
+    }
+	
+figcaption {background-color: #EDEEE9; text-align: center; padding: 5px;}
+
+.block-view .item-columns figcaption, .block-content .item-columns figcaption,  .block-content .item figcaption{display:none;}
+
+.field--name-field-blog-image {margin-bottom: 20px;}
+
+.gva-navigation .gva_menu_main li{margin-top: 0px !important;}
+header .site-branding { padding: 16px 0 10px !important;; }
+.gva-navigation > .gva_menu_main > li > a{padding: 20px 11px!important;}
+/* .gva-navigation .gva_menu_main li a{padding: 19px 11px !important;} */
+/* header.header-v3 .area-main-menu .area-inner.menu-hover .navigation .gva_menu > li > a{padding: 19px 11px!important;} */
+
+.utsource{ background:#ad1616;}
+.utsource:hover{ background:#e43f3f; color:#c62020!important;}
+.utsource > a:hover{color:#c62020!important;}
+.utsource > .sub-menu > li > a{text-transform: capitalize!important; font-size: 13px!important; font-family: "Open Sans",serif!important;}
+
+.block-views-block-re-sidebar-widgets-block-on-sidebar-fashion-news .post-image{width:75px; float:left; margin-right: 5px;}
+.block-views-block-re-sidebar-widgets-block-on-sidebar-fashion-news .post-meta{height:0px;}
+.block-views-block-re-sidebar-widgets-block-on-sidebar-fashion-news .post-content{padding-top: 0px!important;}
+.block-views-block-re-sidebar-widgets-block-on-sidebar-fashion-news .post-body{margin-top: 0px!important;}
+.block-views-block-re-sidebar-widgets-block-on-sidebar-fashion-news .post-block {margin-bottom:5px; background: #f9f7f7;     padding: 10px 8px 5px 8px;}
+.block-views-block-re-sidebar-widgets-block-on-sidebar-fashion-news .block-title{display:none;}
+.block-views-block-re-sidebar-widgets-block-on-sidebar-fashion-news header img{margin-bottom:-20px;}
+
+.digi-home .post-image{width:75px; float:left; margin-right: 5px;}
+.digi-home .post-meta{height:0px;}
+.digi-home .post-content{padding-top: 0px!important;}
+.digi-home .post-body{margin-top: 0px!important;}
+.digi-home .post-block {margin-bottom:5px; background: #f9f7f7;     padding: 10px 8px 5px 8px;}
+.digi-home .block-title{display:none;}
+.digi-home header img{margin-bottom:-20px;}
+
+@media only screen and (max-width:992px){ /* mobile for billboard*/
+   .ad970-wrapper{display:none;}   /* commented as only adsense is running, activate again to run different ads on mobile and desktop*/
+}
+@media only screen and (min-width:992px){ /* desktop */
+   .adresponsive-wrapper{display:none;}
+}
+
+.jlc{background-repeat:no-repeat; width:112px; background-image: url("https://lh3.googleusercontent.com/-KCqJMeK2LoE/Xp6kcbMNhAI/AAAAAAAABU8/9lrs4gjLWVkvQdniiOLsjLesahVmRUVOQCK8BGAsYHg/s0/unnamed%2B%25281%2529.png");}

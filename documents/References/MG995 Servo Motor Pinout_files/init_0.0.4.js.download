@@ -1,0 +1,404 @@
+(function(){
+	var offers = [
+		{
+			company: 'farnell',
+			image: 'https://di.oemsecrets.com/views/components101/article/img/farnell.png',
+			title: 'Get 15% off Farnell and Newark Products',
+			badge: '15% Off',
+			body: 'Find your exclusive discount code and get 15% off Farnell and Newark products when buying through oemsecrets.com. Once you have your code simply add the discount code to the Farnell or Newark checkout.',
+			ctaText: 'Get Discount Code',
+			ctaHref: 'https://article.oemsecrets.com/farnell-offer/',
+		},
+		{
+			company: 'arrow',
+			image: 'https://di.oemsecrets.com/views/components101/article/img/arrow.png',
+			title: 'Get 10% off Arrow Products',
+			badge: '10% Off',
+			body: 'Find your exclusive discount code and get 10% off Arrow products when using code OEM10 at the Arrow checkout when spending $500 or more.',
+			ctaText: 'More Details',
+			ctaHref: 'https://article.oemsecrets.com/save-10-on-orders-500-or-more/',
+		},
+	];
+	var utmAmendments = {
+		47736: {
+			amend: function(url){
+				var current = 'GRHB-OEMSECRETS'
+				var replacement = 'GRHB-OEMSECRETS101'
+				return url.replace(current, replacement);
+			} 
+		},
+		53887: {
+			amend: function(url){
+				var current = 'GRHB-OEMSECRETS'
+				var replacement = 'GRHB-OEMSECRETS101'
+				return url.replace(current, replacement);
+			}
+		},
+		53752: {
+			amend: function(url){
+				var current = 'AFC-OEMSECRETS'
+				var replacement = 'AFC-OEMSECRETS101'
+				return url.replace(current, replacement);
+			}
+		},
+		29553: {
+			amend: function(url){
+				return url + '-_-101';
+			}
+		}
+	}
+	function Config(term){
+		this.search = {term: term};
+		this.container = '#distributorInventory';
+		this.groups = {
+			field: 'no_group',
+		}
+		this.items = {
+			order: ['distributor_name', 'desc'],
+			manual_order: [98725, 44918, 29553, 87553, 73124, 47736],
+		}
+		this.results = {
+			result_group: 'distributor_common_name',
+			order: ['quantity_in_stock', 'desc'],
+			limit: 1,
+			expand_on_interaction: false,
+		}
+		this.render = {
+			body: {
+				class: 'di-body'
+			},
+			failed: {
+				build: function(data, additional){
+					var variant = Math.floor(Math.random() * offers.length);
+					return '<div class="di">' + build.section.search(data, additional) + build.section.feature(offers[variant]) + '</div>';
+				}
+			},
+			group: {
+				header: {
+					build: function(data, additional){
+
+						var element = 
+						'<div class="group-header">'+
+							'<div>Where to Buy</div>'+
+							'<a href="'+generate.url.analytics('header', generate.url.compare(additional, additional.options.search.term))+'">View More Results for ' + additional.options.search.term.toUpperCase() + '</a>'+
+						'</div>';
+						return element;
+					}
+				},
+				columns: [
+					{
+						field: 'distributor_logo',
+						build: function(data, additional){
+							if(additional.result_key == 0){
+								return '<img src="'+data+'">';
+							}
+							return '';
+						},
+						class: 'distributor-logo',
+					},
+					{
+						field: 'distributor_common_name',
+						head: {
+	    					title: function(data, additional){
+	    						return 'Distributor' + build.sort(data, additional);
+	    					},
+	    					class: 'distributor-name',
+	    				},
+	    				class: 'distributor-name',
+						build: function(data, additional){
+							if(additional.result_key == 0){
+								return data;
+							}
+							return '';
+						},
+	    				sort: true,
+					},
+					{
+						field: 'source_part_number',
+						head: {
+	    					title: function(data, additional){
+	    						return 'Part Number' + build.sort(data, additional);
+	    					},
+	    				},
+						build: function(data, additional){
+							if(additional.result_key ==  additional.options.results.limit - 1 && additional.item.results.length > additional.options.results.limit){
+								return data + ' <a href="javascript:void(0);" data-di-group="'+additional.group_key+'" data-di-item="'+additional.item_key+'" data-di-toggle-parts>more</a>'
+							}
+							return data;
+						},
+						sort: true,
+
+					},
+					{
+						field: 'quantity_in_stock',
+						head: {
+	    					title: function(data, additional){
+	    						return 'Stock' + build.sort(data, additional);
+	    					},
+	    				},
+	    				sort: true,
+					},
+					{
+						field: 'buy_now_url',
+						build: function(data, additional){
+							var id = additional.result.distributor_common_id;
+							return '<a class="buy-now" href="'+generate.url.distributor(data, id)+'" target="_BLANK">Buy Now</a>';
+						}
+					},
+				],
+				footer: {
+					build: function(){
+						return 'Powered by <a href="'+generate.url.analytics('site', 'https://www.oemsecrets.com')+'">oemsecrets.com</a>';
+					},
+					class: 'group-footer',
+				}
+			},
+			footer: {
+				build: function(data, additional){
+					var variant = Math.floor(Math.random() * offers.length);
+					return build.section.search(data, additional) + build.section.feature(offers[variant]);
+				}
+			}
+		}
+		this.callbacks = {
+			render: function(data, additional){
+				handlers.toggle.results(data, additional);
+				handlers.autocomplete.trigger(data, additional);
+				handlers.search.submit(data, additional);
+			}
+		}
+	};
+	Config.prototype.getTerm = function(term){
+		if(term !== 'OEMsecrets'){
+			return term
+		}
+		return undefined
+	}
+	var build = {
+		sort: function(data, additional){
+			var order = additional.group.settings.order;
+			if(order.field == data.field){
+				if(order.direction == 'asc'){
+					return '<span class="di-icon-sort-up"></span>';
+				} else if(order.direction == 'desc'){
+					return '<span class="di-icon-sort-down"></span>';
+				}
+			} else {
+				return '<span class="di-icon-sort available-sort"></span>'
+			}
+		},
+		autocomplete: function(data, additional){
+			var element = '';
+			data.parts.forEach(function(part, key){
+				element += '<li data-di-autocomp-item="'+key+'"><a href="' + generate.url.analytics('new-search', generate.url.compare(additional, part)) + '">' + part + '</a></li>';
+			})
+			return element;
+		},
+		section: {
+			search: function(data, additional){
+				var element = 
+					'<section class="search">'+
+						'<div>' +
+							'<div>' +
+								'<div class="section-label">Find and Compare Electronic Components & Parts</div>' +
+								'<p>Get more part information including pricing, lead time and technical specs using <a href="'+'https://www.oemsecrets.com?utm_source=components101&utm_campaign=article&utm_content=site'+'">oemsecrets.com</a> part search</p>'+
+							'</div>' +
+						'</div>' +
+						'<form autocomplete="off" id="searchForm" method="POST">'+
+							'<label for="searchInput">Search a Part Number or Series</label>'+
+							'<div class="di-search-wrapper">' +
+								'<div class="search-bar">' +
+									'<input class="di-input" value="" id="searchInput">' +
+									'<ul class="autocomplete"></ul>' +
+								'</div>' +
+								'<button>Search Now</button>' +
+							'</div>' +
+						'</form>' +
+						'<div class="bom-upload">' +
+							'<a class="button" href="'+generate.url.analytics('bom-upload','https://bomtool.oemsecrets.com/login')+'">Upload BOM</a>' +
+							'<p>Upload a list of part numbers to find the inventory and pricing of multiple part numbers with <a href="'+generate.url.analytics('site', 'https://www.oemsecrets.com')+'">oemsecrets.com</a> new BOM Tool.</p>' +
+						'</div>' +
+					'</section>';
+				return element;
+			},
+			feature: function(offer){
+				var element = 
+				'<section class="featured">'+
+					'<div class="content">'+
+						'<div class="logo">' +
+							'<a href="'+generate.url.analytics(offer.company+'-offer', offer.ctaHref)+'"><img src="'+offer.image+'"></a>' +
+							'<a href="'+generate.url.analytics(offer.company+'-offer', offer.ctaHref)+'" class="di-badge">'+offer.badge+'</a>'+
+						'</div>'+
+						'<div>' +
+							'<h3>'+ offer.title +'</h3>' +
+							'<p>'+ offer.body +
+							'<small> Terms and conditions apply.</small></p>' +
+							'<section><a class="button" href="'+generate.url.analytics(offer.company+'-offer', offer.ctaHref)+'">'+offer.ctaText+'</a></section>' +
+						'</div>' +
+					'</div>'+
+				'</section>';
+				return element;
+			}
+		}
+	};
+	var render = {
+		autocomplete: function(data, additional){
+			document.querySelector('.di .autocomplete').innerHTML = build.autocomplete(data, additional);
+		},
+		section: function(){
+			var div = document.createElement('div');
+			div.id = 'distributorInventory';
+			var element = document.querySelector('[data-di-key]');
+			element.parentNode.insertBefore(div, element);
+		}
+
+	};
+	var generate = {
+		url: {
+			details: function(term, additional){
+				var groupItems = additional.data.groups[0].items;
+				var urlTerm;
+				for(var itemIndex = 0; itemIndex < groupItems.length; itemIndex++ ){
+					var result = groupItems[itemIndex].results[0]
+					if(result.part_number == helper.replaceSpecialChars(term)){
+						urlTerm = result.source_part_number;
+						urlTerm = urlTerm.replace(/[^a-zA-Z0-9]/g, '-');
+						urlTerm = urlTerm.replace(/-+/g, '-');
+						urlTerm = urlTerm.replace(/^-+|-+$/gm,'');
+						itemIndex = groupItems.length;
+					} else {
+						urlTerm = term;
+					}
+				}
+				var url = 'https://www.oemsecrets.com/details/' + urlTerm.toLowerCase();
+				return url;
+			},
+			compare: function(additional, term){
+				return 'https://www.oemsecrets.com/compare/1/'+ additional.options.currency +'/' + term;
+			},
+			analytics: function(content, url){
+				var main = 'https://analytics.oemsecrets.com/main.php?';
+				var source = 'components101';
+				var campaign = 'article';
+				var eventLink = encodeURIComponent(url+'?utm_campaign='+campaign+'&utm_source='+source+'&utm_content='+content+'&utm_medium=ct');
+				return main + 'utm_campaign='+campaign+'&utm_source='+source+'&utm_content='+content+'&utm_medium=cc'+'&event_link='+eventLink
+			},
+			distributor: function(url, id){
+				if(typeof(utmAmendments[id]) !== 'undefined'){
+					return utmAmendments[id].amend(url);
+				}
+				return url;
+			}
+		}
+	};
+	var handlers = {
+		autocomplete: {
+			trigger: function(data, additional){
+				document.querySelector('.di #searchInput').onkeyup = function(event){
+					var value = this.value;
+					if(value.length > 2){
+						var directions = [38, 40];
+						var ommit = event.keyCode < 46 && event.keyCode != 8 && directions.indexOf(event.keyCode) == -1;
+						if(!ommit){
+							if(directions.indexOf(event.keyCode) == -1){
+								var request = new XMLHttpRequest();
+								request.addEventListener('load', function(){
+									render.autocomplete(JSON.parse(this.responseText), additional);
+								});
+								request.open('GET', 'https://di.oemsecrets.com/autocomplete/?term=' + value);
+								request.send();
+							} else {
+								handlers.autocomplete.directions(event, value);
+							}
+						}
+					} else {
+						var data = {parts: []};
+						render.autocomplete(data)
+					}
+				}
+			},
+			directions: function(event){
+				var listItems = document.querySelectorAll('.di .autocomplete li');
+				var current = document.querySelectorAll('.di .autocomplete li.active');
+				if(event.keyCode == 40){
+					if(current.length == 0){
+						handlers.autocomplete.setState(listItems, 0);
+					} else {
+						var activeIndex = parseInt(document.querySelector('.di .autocomplete li.active').dataset.diAutocompItem);
+						if(activeIndex + 1 !== listItems.length){
+							handlers.autocomplete.setState(listItems, activeIndex, activeIndex + 1);
+						} else {
+							handlers.autocomplete.setState(listItems, activeIndex, 0);
+						}
+					}
+				} else if (event.keyCode == 38){
+					if(current.length == 0){
+						handlers.autocomplete.setState(listItems, listItems.length - 1);
+					} else {
+						var activeIndex = parseInt(document.querySelector('.di .autocomplete li.active').dataset.diAutocompItem);
+						if(activeIndex - 1 > -1){
+							handlers.autocomplete.setState(listItems, activeIndex, activeIndex - 1);
+						} else {
+							handlers.autocomplete.setState(listItems, activeIndex, listItems.length - 1);
+						}
+					}
+				}
+			},
+			setState: function(listItems, active, newActive){
+				if(typeof(newActive) == 'undefined'){ 
+					listItems[active].classList.add('active');
+					document.querySelector('.di #searchInput').value = listItems[active].querySelector('a').innerHTML;
+				} else {
+					listItems[active].classList.remove('active');
+					listItems[newActive].classList.add('active');
+					document.querySelector('.di #searchInput').value = listItems[newActive].querySelector('a').innerHTML;
+				}
+
+			}
+		}, 
+		toggle: {
+			results: function(data, additional){
+				document.querySelectorAll(additional.options.container + ' [data-di-toggle-parts]').forEach(function(trigger){
+					trigger.onclick = function(){
+						var groupIndex = trigger.dataset.diGroup;
+						var itemIndex = trigger.dataset.diItem;
+						var groupSelector = additional.options.container + ' section[data-di-group-index="'+groupIndex+'"]';
+						var hiddenItemsSelector = 'tr[data-di-hidden][data-di-item-index="'+itemIndex+'"]'
+						document.querySelectorAll(groupSelector + ' ' + hiddenItemsSelector).forEach(function(hiddenItem){
+							if(hiddenItem.style.display == 'none'){
+								hiddenItem.style.display = 'table-row';
+								trigger.innerHTML = 'fewer'
+							} else {
+								hiddenItem.style.display = 'none';
+								trigger.innerHTML = 'more';
+							}
+						})
+					}
+				});
+			}
+		},
+		search: {
+			submit:function(data, additional){
+				document.querySelector('.di #searchForm').onsubmit = function(event){
+					event.preventDefault();
+					var term = document.querySelector('.di #searchInput').value;
+					if(term.length > 2){
+						this.action = generate.url.analytics('new-search', generate.url.compare(additional, term) );
+						this.submit();
+					} else {
+						this.action = generate.url.analytics('empty-search', 'https://www.oemsecrets.com');
+						this.submit();
+					}
+				}
+			},
+		}
+	};
+	var helper = {
+		replaceSpecialChars: function(str){
+			return str.replace(/[^a-zA-Z0-9]/g, '');
+		}
+	};
+	render.section();
+	var term = helper.replaceSpecialChars(document.querySelector('[data-di-project]').dataset.diTerm);
+	var display = DistributorInventory.search( new Config(term) );
+})();
